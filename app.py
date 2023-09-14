@@ -20,16 +20,21 @@ from langchain.schema import SystemMessage
 from flask import Flask
 import streamlit as st
 
+import openai
 import toml
 
 #load_dotenv()
 #browserless_api_key = os.getenv("BROWSERLESS_API_KEY")
 #serper_api_key = os.getenv("SERPER_API_KEY")
 config = toml.load("config.toml")
-browserless_api_key = config["api_keys"]["BROWSERLESS_API_KEY"]
-serper_api_key = config["api_keys"]["SERPER_API_KEY"]
-openai_api_key=config["api_keys"]["OPENAI_API_KEY"]
+#browserless_api_key = config["api_keys"]["BROWSERLESS_API_KEY"]
+#serper_api_key = config["api_keys"]["SERPER_API_KEY"]
+#openai_api_key=config["api_keys"]["OPENAI_API_KEY"]
 
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+browserless_api_key = st.secrets["BROWSERLESS_API_KEY"]
+serper_api_key = st.secrets["SERPER_API_KEY"]
 
 # 1. Tool for search
 

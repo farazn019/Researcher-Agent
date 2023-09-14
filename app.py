@@ -25,9 +25,10 @@ import toml
 #load_dotenv()
 #browserless_api_key = os.getenv("BROWSERLESS_API_KEY")
 #serper_api_key = os.getenv("SERPER_API_KEY")
-config = toml.load("~/. streamlit/config. toml")
+config = toml.load("config. toml")
 browserless_api_key = config["api_keys"]["BROWSERLESS_API_KEY"]
 serper_api_key = config["api_keys"]["SERPER_API_KEY"]
+openai_api_key=config["api_keys"]["OPENAI_API_KEY"]
 
 
 # 1. Tool for search
